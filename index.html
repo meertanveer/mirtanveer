@@ -211,7 +211,7 @@
                   <span>Projects completed</span>
                 </p>
                 <p>
-                  <a href="#" class="btn btn-primary py-3 px-3">Download CV</a>
+                  <a href="#" class="btn btn-primary py-3 downloadBtn px-3">Download CV</a>
                 </p>
               </div>
             </div>
@@ -292,7 +292,7 @@
         </div>
         <div class="row justify-content-center mt-5">
           <div class="col-md-6 text-center ftco-animate">
-            <p><a href="#" class="btn btn-primary py-4 px-5">Download CV</a></p>
+            <p><a  href="#" class="btn downloadBtn btn-primary py-4 px-5">Download CV</a></p>
           </div>
         </div>
       </div>
@@ -1098,7 +1098,26 @@
         />
       </svg>
     </div>
-
+	<script>
+		// Get all elements with the class 'downloadBtn'
+		const downloadButtons = document.querySelectorAll('.downloadBtn');
+		
+		// Loop through each button to attach the click event listener
+		downloadButtons.forEach(button => {
+			button.addEventListener('click', function() {
+				// Path to your PDF file
+				const pdfPath = '/images/veerGResume.pdf';
+				
+				// Create a temporary anchor element
+				const a = document.createElement('a');
+				a.href = pdfPath;
+				a.download = 'TanveerHussainMir.pdf'; // Set the desired filename here
+				document.body.appendChild(a);
+				a.click(); // Click the anchor element to trigger the download
+				document.body.removeChild(a); // Clean up
+			});
+		});
+		</script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/popper.min.js"></script>
